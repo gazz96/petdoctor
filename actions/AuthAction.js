@@ -10,15 +10,13 @@ const AuthAction = {
         return response.data;
     },
     register: async(data={}) => {
-        const response = await axiosRequest.post('/auth/register',data)
+        const response = await axiosRequest.post('/register',data)
         return response.data;
        
     },
     validate: async(token) => {
         return true
     },
-    
-
 }
 
 export default AuthAction;

@@ -23,7 +23,7 @@ const DetailArticleScreen = ({route, navigation}) => {
         <ScrollView style={{ flex: 1, backgroundColor: 'red'}} contentContainerStyle={{flexGrow: 1}}>
             <ImageBackground source={{
                 uri: article.thumbnail
-            }} imageStyle={{borderBottomLeftRadius: 15, borderBottomRightRadius: 15}} style={styles.hero}>
+            }} style={styles.hero}>
                 <Pressable style={{ paddingHorizontal:  20, paddingVertical: 20}} onPress={() => navigation.goBack()}>
                     <Text style={{ width: 40, height: 40, backgroundColor: '#fff', borderRadius: 40, justifyContent: 'center', textAlign: 'center', lineHeight: 40 }}>
                         <Icon name={'arrow-left'} color={Colors.dark} size={14} solid/>
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         backgroundColor: '#fff',
-        paddingHorizontal: 20,
+        paddingHorizontal: 28,
         width: '100%',
         flex: 1,
         flexGrow: 1,

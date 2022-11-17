@@ -19,24 +19,23 @@ const SearchScreen = ({ navigation }) => {
   })
 
   return (
-    <View style={{backgroundColor: Colors.white, flex: 1}}>
+    <View style={{backgroundColor: '#fff', flex: 1}}>
       <ScrollView style={styles.container}>
         <Gap height={20}/>
-        <HeaderWithBackButton onPress={() => navigation.goBack()} title={'Filter Doctor'}/>
+        <HeaderWithBackButton onPress={() => navigation.goBack()} title={'Filter Dokter'}/>
         <Gap height={45}/>
         <View>
           <View>
-            <Text style={{ fontWeight: 'bold', fontSize: 14, color: Colors.dark}}>Name</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 14, color: Colors.dark}}>Nama Dokter</Text>
             <Gap height={8}/>
             <TextInput style={styles.formControl} placeholder={'Masukan Kata Kunci'} value={shopSearchParams.keyword.get()} onChangeText={(text) => shopSearchParams.keyword.set(text)}/>
           </View>
         
           <Gap height={20}/>
           <View>
-            <Text style={{ fontWeight: 'bold', fontSize: 14, color: Colors.dark}}>Skills</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 14, color: Colors.dark}}>Keahlian</Text>
             <Gap height={8}/>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>    
-                
+            <ScrollView horizontal={true}>    
                 <Text style={[styles.badgeFilter, (Object.keys(shopSearchParams.skill.get()).length === 0 ? styles.badgeActive : {})]} 
                   onPress={()=> {  shopSearchParams.skill.set({}) }}>Semua</Text>
                 
@@ -46,9 +45,7 @@ const SearchScreen = ({ navigation }) => {
                       onPress={()=> {  shopSearchParams.skill.set(skill) }}>{skill.name}</Text>
                   ))
                 }
-
-               
-            </View>
+            </ScrollView>
           </View>
         
           {/* <Gap height={20}/>

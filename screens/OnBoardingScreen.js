@@ -22,7 +22,7 @@ const OnBoardingScreen = ({ navigation }) => {
                 borderRadius: 3,
                 fontSize: 10, }}>Skip</Text> */}
         </ImageBackground>
-        <View style={{ padding: 20, justifyContent: 'space-between', flex: 1, borderRadius: 30, marginTop: -30, backgroundColor: Colors.white, overflow: 'hidden' }}>
+        <View style={{ padding: 20, justifyContent: 'space-between', flex: 1, borderRadius: 30, marginTop: -30, backgroundColor: '#fff', overflow: 'hidden' }}>
             <View>
                 <Text style={styles.title}>Selamat datang di PETCARE</Text>
                 <Text style={styles.description}>Jasa dan konsultasikan kesehatan hewan peliharaan anda bersama kami</Text>
@@ -41,7 +41,7 @@ export default OnBoardingScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Colors.white
+        backgroundColor: '#fff'
     },
     btnPrimary: {
         backgroundColor: Colors.primary,

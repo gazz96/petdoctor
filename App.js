@@ -173,7 +173,6 @@ const App = () => {
           <Stack.Screen name="My Order" component={MyOrderScreen}/>
           <Stack.Screen name="My Review" component={MyReviewScreen}/>
           <Stack.Screen name="Order Timeline" component={TimelineScreen}/>
-          <Stack.Screen name="Blogs Screen" component={BlogsScreen}/>
           <Stack.Screen name="Kota" component={KotaScreen}/>
           <Stack.Screen name="Induction Program" component={InductionScreen}/>
           <Stack.Screen name="Induction Detail" component={InductionDetailScreen}/>
@@ -182,6 +181,7 @@ const App = () => {
           <Stack.Screen name="Search Screen" component={SearchScreen}/>
           <Stack.Screen name="Order" component={OrderScreen}/>
           <Stack.Screen name="Chats" component={ChatScreen}/>
+          <Stack.Screen name="Blogs Screen" component={BlogsScreen}/>
         </Stack.Navigator>
       </NavigationContainer>
       <Toast/>

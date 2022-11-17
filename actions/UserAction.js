@@ -110,8 +110,8 @@ const UserAction = {
             return false;
         }
     },
-    changePassword: async(data) => {
-        const response = await axiosRequest.post('/user/password',data);
+    updatePassword: async(data={}) => {
+        const response = await axiosRequest.post('/users/update-password', data);
         return response.data;
     },
     banks: async() => {

@@ -166,20 +166,22 @@ const PersonalInfoScreen = ({navigation}) => {
           <Gap height={20}/>
           <Text style={styles.separator}></Text>
           <Gap height={20}/>
-
-          <Text style={styles.title}>Informasi Tambahan</Text>
-          <Gap height={16}/>
-          <View>
-            <Text style={styles.formLabel}>STR</Text>
-            <TextInput style={styles.formControl} value={personalInfoState.information.get().str}/>
-          </View>
-          <Gap height={20}/>
-          <View>
-            <Text style={styles.formLabel}>Alamat Praktik</Text>
-            <TextInput style={styles.formControl} onChangeText={text => setValue('nama_cabang', text)} value={personalInfoState.information.get().practice_address}/>
-          </View>
-          <Gap height={20}/>
-            
+          {
+            userState.get().role_id == 1 ? 
+            <>
+            <Text style={styles.title}>Informasi Tambahan</Text>
+            <Gap height={16}/>
+            <View>
+              <Text style={styles.formLabel}>STR</Text>
+              <TextInput style={styles.formControl} value={personalInfoState.information.get().str}/>
+            </View>
+            <Gap height={20}/>
+            <View>
+              <Text style={styles.formLabel}>Alamat Praktik</Text>
+              <TextInput style={styles.formControl} onChangeText={text => setValue('nama_cabang', text)} value={personalInfoState.information.get().practice_address}/>
+            </View>
+            <Gap height={20}/>
+              
             <View>
               <Text style={styles.formLabel}>Kemampuan</Text>
               <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -192,6 +194,9 @@ const PersonalInfoScreen = ({navigation}) => {
               }
               </ScrollView>
             </View>
+          </> : <></>
+          }
+          
 
           {/* <Pressable style={{ flexDirection: 'row', justifyContent: 'flex-end'}} onPress={()=> {
             updateProfile()

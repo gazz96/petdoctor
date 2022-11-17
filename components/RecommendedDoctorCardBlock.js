@@ -40,7 +40,7 @@ const RecommendedDoctorCardBlock = (props) => {
         {
             isLoading ? <ActivityIndicator/> : doctors.map((doctor, index) => {
                 return (
-                    <View style={{width: '50%', paddingHorizontal: 3}}>
+                    <View style={{width: '50%', paddingHorizontal: 3}} key={index}>
                         <DoctorCardBlock 
                             doctor={doctor}
                             onPress={() => props.navigation.navigate("Detail Doctor", {

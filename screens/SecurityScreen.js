@@ -29,7 +29,7 @@ const SecurityScreen = ({navigation}) => {
   const updatePassword = async() => {
     setLoading(true)
     try {
-      const request = await UserAction.changePassword(passwordState.get())
+      const request = await UserAction.updatePassword(passwordState.get())
       Toast.show({
         type: 'success',
         text1: 'Informasi',

@@ -9,8 +9,8 @@ import { UserContext } from '../context';
 import Toast from 'react-native-toast-message';
 
 const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('doctor@gmail.com');
-  const [password, setPassword] = useState('doctor')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('')
   const [token, setToken] = useState('');
   const [isLoading, setLoading] = useState(false);
 

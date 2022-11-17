@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, ImageBackground, ActivityIndicator, useWindowDimensions  } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { Gap, HeaderWithBackButton, Loading } from '../components'
-import { BASE_URL } from '../constant'
+import { BASE_URL, Colors } from '../constant'
 
 import { ArticleAction } from '../actions'
 
@@ -17,10 +17,10 @@ const BlogsScreen = ({ navigation }) => {
             const response = await ArticleAction.get({
                 paginate: 20
             });
-            console.log(response)
+            console.log('getarticles',response.data);
             setArticles(response.data);
         }catch(error) {
-            console.error(error);
+            console.error('error', error);
         }finally{
             setLoading(false)
         }
@@ -54,15 +54,15 @@ const BlogsScreen = ({ navigation }) => {
                             <TouchableOpacity  onPress={() => {navigation.navigate('Detail Article', {
                                 article: article
                             })}}>
-                            <ImageBackground source={blogImageUrl(article.post_thumbnail)} resizeMode="cover" imageStyle={{borderRadius: 10}} 
+                            <ImageBackground source={{
+                                uri: article.thumbnail
+                            }} resizeMode="cover" imageStyle={{borderRadius: 10}} 
                             style={{ 
                                 width: '100%', 
                                 height: 160,
                                 marginBottom: 8
                             }}/>
-                            <Text style={{ fontWeight: 'bold', color: '#000', marginBottom: 2, fontSize: 16
-                            
-                            }}>{article.post_title}</Text>
+                            <Text style={{ fontWeight: 'bold', color: '#000', marginBottom: 2, fontSize: 16, color: Colors.dark}}>{article.title}</Text>
                             
                             
                             <Gap height={20}/>

@@ -11,25 +11,24 @@ import { Loading } from '../components'
 
 const RegisterScreen = ({ route, navigation }) => {
 
-  const {role_id} = route.params
   const [isLoading, setLoading] = useState(false);
   const form = useHookstate({
-    role_id: '',
-    email: 'akunbaru@gmail.com',
-    no_hp: '1234567890',
-    password: 'akunbaru123'
+    name: '',
+    email: '',
+    hp: '',
+    password: ''
   })
 
   const createAccount = async() => {
-    setLoading(true)
+    console.log('create account');
     try {
-        form.role_id.set(role_id)
+        setLoading(true)
         const response = await AuthAction.register(form.get())
         console.log(response);
         Toast.show({
             type: 'success',
             text1: 'Berhasil membuat akun',
-            text2: 'mohon ditunggu akun anda sedang diverifikasi oleh team kami'
+            text2: 'Berhail membuat akun'
         });
     }catch(error){
         console.log(error.response.data);
@@ -59,11 +58,16 @@ const RegisterScreen = ({ route, navigation }) => {
             isLoading ? <Loading/> : 
             <View style={styles.container}>
                 <Gap height={40}/>
-                <Image source={logoSrc} style={styles.logo} resizeMode="contain"/>
+                <Image source={require('../assets/images/logo.png')} style={styles.logo} resizeMode="contain"/>
                 <Gap height={80}/>
                 <View style={{ width: '100%'}}>
                     <Text style={styles.title}>Buat Akun Baru</Text>
                     <Gap height={30}/>
+                    <View>
+                        <Text style={styles.formLabel}>Nama Lengkap</Text>
+                        <TextInput style={styles.formControl} onChangeText={text => form.name.set(text)} value={form.name.get()}/>
+                    </View>
+                    <Gap height={20}/>
                     <View>
                         <Text style={styles.formLabel}>Email</Text>
                         <TextInput style={styles.formControl} onChangeText={text => form.email.set(text)} value={form.email.get()}/>
@@ -71,7 +75,7 @@ const RegisterScreen = ({ route, navigation }) => {
                     <Gap height={20}/>
                     <View>
                         <Text style={styles.formLabel}>Nomor HP</Text>
-                        <TextInput style={styles.formControl} onChangeText={text => form.no_hp.set(text)} keyboardType="number-pad" value={form.no_hp.get()}/>
+                        <TextInput style={styles.formControl} onChangeText={text => form.hp.set(text)} keyboardType="number-pad" value={form.hp.get()}/>
                     </View>
                     <Gap height={20}/>
                     <View>
@@ -80,7 +84,6 @@ const RegisterScreen = ({ route, navigation }) => {
                     </View>
                     <Gap height={20}/>
                     <View style={{flexDirection:'row', justifyContent: 'space-between', flexWrap: 'wrap'}}>
-                        <Text style={styles.btnSecondary} onPress={() => navigation.goBack()}>Kembali</Text>
                         <Text style={styles.btnPrimary} onPress={() => createAccount()}>Daftar</Text>
                     </View>
                     <Gap height={12}/>
@@ -131,7 +134,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16
     },
     btnPrimary: {
-        width: '48%',
+        width: '100%',
         borderRadius: 10,
         color: '#fff',
         backgroundColor: Colors.primary,
